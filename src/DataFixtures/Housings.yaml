@@ -1,0 +1,8 @@
+Housings:
+  penthouse:
+    address: "3217 North Bayshore Drive"
+    zipCode: 33010
+    city: Miami
+    country: USA
+    capacity: 10
+    owner: pierretranchard

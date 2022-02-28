@@ -1,0 +1,11 @@
+Users:
+  pierretranchard:
+    firstName: Pierre
+    lastName: Tranchard
+    email: pierre@tranchard.net
+    birthDate: "1988-02-18"
+  kevinmathieu:
+    firstName: Kévin
+    lastName: Mathieu
+    email: kevin.mathieu@manomano.com
+    birthDate: "1990-08-10"

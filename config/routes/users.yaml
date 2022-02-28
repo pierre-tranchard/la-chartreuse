@@ -1,0 +1,10 @@
+users_read:
+  path: users/{id}
+  controller: App\Controller\UserController::readAction
+  methods: OPTIONS|GET
+
+users_update:
+  path: users/{id}
+  controller: App\Controller\UserController::updateAction
+  methods: OPTIONS|PUT
+
