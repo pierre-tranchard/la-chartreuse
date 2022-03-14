@@ -4,21 +4,24 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.4|8.0",
+        "php": ">=7.4||8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.11",
-        "symfony/console": "5.4.*|6.0.*",
-        "symfony/dotenv": "5.4.*|6.0.*",
-        "symfony/flex": "^1.18|^2",
-        "symfony/framework-bundle": "5.4.*|6.0.*",
-        "symfony/property-access": "5.4.*|6.0.*",
-        "symfony/proxy-manager-bridge": "5.4.*|6.0.*",
-        "symfony/runtime": "5.4.*|6.0.*",
-        "symfony/serializer": "5.4.*|6.0.*",
-        "symfony/yaml": "5.4.*|6.0.*"
+        "symfony/console": "5.4.*||6.0.*",
+        "symfony/dotenv": "5.4.*||6.0.*",
+        "symfony/flex": "^1.18||^2",
+        "symfony/framework-bundle": "5.4.*||6.0.*",
+        "symfony/property-access": "5.4.*||6.0.*",
+        "symfony/proxy-manager-bridge": "5.4.*||6.0.*",
+        "symfony/runtime": "5.4.*||6.0.*",
+        "symfony/security-bundle": "5.4.*||6.0.*",
+        "symfony/serializer": "5.4.*||6.0.*",
+        "symfony/validator": "5.4.*||6.0.*",
+        "symfony/yaml": "5.4.*||6.0.*"
     },
     "config": {
         "allow-plugins": {
@@ -68,7 +71,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.4.*|6.0.*",
+            "require": "5.4.*||6.0.*",
             "docker": true
         }
     },

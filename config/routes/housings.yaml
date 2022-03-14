@@ -1,14 +1,14 @@
 housings_read:
-  path: housings/{id}
+  path: /{id}
   controller: App\Controller\HousingController::readAction
   methods: OPTIONS|GET
 
 housings_update:
-  path: housings/{id}
+  path: /{id}
   controller: App\Controller\HousingController::updateAction
   methods: OPTIONS|PUT
 
 housings_create:
-  path: housings
+  path: /
   controller: App\Controller\HousingController::createAction
   methods: OPTIONS|POST

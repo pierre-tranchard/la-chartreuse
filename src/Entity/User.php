@@ -5,12 +5,15 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation as Serialization;
+use Symfony\Component\Validator\Constraints as Constraints;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id()
@@ -23,24 +26,36 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      * @Serialization\Groups({"user"})
+     * @Constraints\NotNull()
+     * @Constraints\NotBlank()
+     * @Constraints\Length(min=5)
      */
     private string $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serialization\Groups({"user"})
+     * @Constraints\NotNull()
+     * @Constraints\NotBlank()
+     * @Constraints\Length(min=2)
      */
     private string $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serialization\Groups({"user"})
+     * @Constraints\NotNull()
+     * @Constraints\NotBlank()
+     * @Constraints\Length(min=2)
      */
     private string $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serialization\Groups({"user"})
+     * @Constraints\NotNull()
+     * @Constraints\NotBlank()
+     * @Constraints\Email()
      */
     private string $email;
 
@@ -251,5 +266,20 @@ class User
         }
 
         return false;
+    }
+
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function eraseCredentials()
+    {
+        $this->password = null;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->getUsername();
     }
 }

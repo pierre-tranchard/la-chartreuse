@@ -7,12 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RentController
 {
-    public function createAction(Request $request): Response
-    {
-
-    }
-
-    public function updateAction(Request $request): Response
+    public function bookAction(Request $request): Response
     {
 
     }
@@ -22,7 +17,7 @@ class RentController
 
     }
 
-    public function deleteAction(Request $request): Response
+    public function cancelAction(Request $request): Response
     {
 
     }

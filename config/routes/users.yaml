@@ -1,10 +1,19 @@
 users_read:
-  path: users/{id}
+  path: /{id}
   controller: App\Controller\UserController::readAction
   methods: OPTIONS|GET
 
 users_update:
-  path: users/{id}
+  path: /{id}
   controller: App\Controller\UserController::updateAction
   methods: OPTIONS|PUT
 
+users_delete:
+  path: /{id}
+  controller: App\Controller\UserController::deleteAction
+  methods: OPTIONS|DELETE
+
+users_create:
+  path: /
+  controller: App\Controller\UserController::createAction
+  methods: OPTIONS|POST

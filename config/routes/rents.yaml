@@ -1,19 +1,14 @@
 rents_read:
-  path: rents/{id}
+  path: /{id}
   controller: App\Controller\RentController::readAction
   methods: OPTIONS|GET
 
-rents_update:
-  path: rents/{id}
-  controller: App\Controller\RentController::updateAction
-  methods: OPTIONS|PUT
-
-rents_create:
-  path: rents
-  controller: App\Controller\RentController::createAction
+rents_book:
+  path: /
+  controller: App\Controller\RentController::bookAction
   methods: OPTIONS|POST
 
-rents_delete:
-  path: rents/{id}
-  controller: App\Controller\RentController::deleteAction
+rents_cancel:
+  path: /{id}
+  controller: App\Controller\RentController::cancelAction
   methods: OPTIONS|DELETE

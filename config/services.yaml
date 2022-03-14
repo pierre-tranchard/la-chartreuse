@@ -19,6 +19,7 @@ services:
             - '../src/Controller'
             - '../src/DataFixtures'
             - '../src/DependencyInjection/'
+            - '../src/EventListener/'
             - '../src/Entity/'
             - '../src/Kernel.php'
 
@@ -33,6 +34,18 @@ services:
             - "@doctrine"
             - "App\\Entity\\User"
 
+    App\DataFixtures\:
+        resource: '../src/DataFixtures'
+        tags:
+            - doctrine.fixture.orm
+
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    Symfony\Component\PasswordHasher\Hasher\Pbkdf2PasswordHasher: ~
+
+    Symfony\Component\PasswordHasher\PasswordHasherInterface: '@Symfony\Component\PasswordHasher\Hasher\Pbkdf2PasswordHasher'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

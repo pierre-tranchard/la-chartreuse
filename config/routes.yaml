@@ -1,11 +1,11 @@
 users:
     resource: routes/users.yaml
-    prefix: v1/
+    prefix: v1/users
 
 housings:
     resource: routes/housings.yaml
-    prefix: v1/
+    prefix: v1/housings
 
 rents:
     resource: routes/rents.yaml
-    prefix: v1/
+    prefix: v1/rents
