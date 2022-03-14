@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Housing;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\AbstractQuery;
 
 class RentRepository extends ServiceEntityRepository
 {
@@ -12,11 +11,11 @@ class RentRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('rent')
             ->select('count(rent.id)')
-            ->where('rent.housing.id := housing')
+            ->where('rent.housing = :housing')
             ->andWhere('rent.dateFrom BETWEEN :from AND :to')
             ->orWhere('rent.dateTo BETWEEN :from AND :to');
 
-        $queryBuilder->getQuery()->setParameters(
+        $queryBuilder->setParameters(
             [
                 'housing' => $housing->getId(),
                 'from'    => $from->format('Y-m-d'),
@@ -24,6 +23,6 @@ class RentRepository extends ServiceEntityRepository
             ]
         );
 
-        return ($queryBuilder->getQuery()->getSingleResult(AbstractQuery::HYDRATE_SCALAR_COLUMN)) === 0;
+        return $queryBuilder->getQuery()->getSingleScalarResult() === 0;
     }
 }

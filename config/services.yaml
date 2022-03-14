@@ -34,6 +34,12 @@ services:
             - "@doctrine"
             - "App\\Entity\\User"
 
+    App\Repository\RentRepository:
+        class: App\Repository\RentRepository
+        arguments:
+            - "@doctrine"
+            - "App\\Entity\\Rent"
+
     App\DataFixtures\:
         resource: '../src/DataFixtures'
         tags:

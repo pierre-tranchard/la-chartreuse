@@ -20,7 +20,7 @@ class Rent
 
     /**
      * @ORM\ManyToOne (targetEntity="App\Entity\Housing", inversedBy="rents")
-     * @Serialization\Groups({"user", "housing", "rent"})
+     * @Serialization\Groups({"user", "housing"})
      * @Serialization\MaxDepth(2)
      */
     private Housing $housing;
@@ -39,7 +39,7 @@ class Rent
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="rents")
-     * @Serialization\Groups({"housing", "rent"})
+     * @Serialization\Groups({"housing"})
      */
     private User $renter;
 
