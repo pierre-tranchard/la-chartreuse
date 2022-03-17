@@ -217,8 +217,8 @@ class Housing
 
     public function addRent(Rent $rent): bool
     {
-        if (!$this->rents->containsKey($rent->getId())) {
-            $this->rents->set($rent->getId(), $rent);
+        if (!$this->rents->contains($rent)) {
+            $this->rents->add($rent);
 
             return true;
         }
@@ -228,8 +228,8 @@ class Housing
 
     public function removeRent(Rent $rent): bool
     {
-        if ($this->rents->containsKey($rent->getId())) {
-            return $this->rents->remove($rent->getId());
+        if ($this->rents->contains($rent)) {
+            return $this->rents->remove($rent);
         }
 
         return false;
