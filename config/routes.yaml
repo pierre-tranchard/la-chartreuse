@@ -9,3 +9,6 @@ housings:
 rents:
     resource: routes/rents.yaml
     prefix: v1/rents
+
+api_login_check:
+    path: /login_check

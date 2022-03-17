@@ -74,7 +74,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private string $password;
+    private ?string $password;
 
     /**
      * @ORM\Column(type="string")
@@ -180,12 +180,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): User
+    public function setPassword(?string $password = null): User
     {
         $this->password = $password;
 
